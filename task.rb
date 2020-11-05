@@ -152,16 +152,28 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-  if data1.key?(:age)
-    puts "OK"
-  else
-    puts "NG"
-  end
+  # if data1.key?(:age)
+  #   puts "OK"
+  # else
+  #   puts "NG"
+  # end
 
-  if data2.key?(:age)
-    puts "OK"
-  else
-    puts "NG"
+  # 三項演算子を使う
+  puts data1.key?(:age) ? "OK" : "NG"
+
+  # if data2.key?(:age)
+  #   puts "OK"
+  # else
+  #   puts "NG"
+  # end
+
+  # 三項演算子を使う
+  puts data2.key?(:age) ? "OK" : "NG"
+  
+  # ２つの処理をまとめる
+  data = [data1,data2]
+  data.each do |data|
+    puts data.key?(:age) ? "OK" : "NG"
   end
 
 end
@@ -175,10 +187,10 @@ def q16
   ]
 
   #以下に回答を記載
-  users.each_with_index do |(name, age), i|
-    puts "私の名前は#{users[i][:name]}です。年齢は#{users[i][:age]}歳です"
+  users.each do |user|
+    puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です"
   end
-  
+ 
 end
 
 class UserQ17
