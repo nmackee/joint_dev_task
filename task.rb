@@ -195,7 +195,7 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  def initialize(params)
+  def initialize(**params)
     @name = params[:name]
     @age = params[:age]
     @gender = params[:gender]
@@ -229,10 +229,10 @@ class UserQ18
   end
 
   def introduce
-    if @age == 32
-      puts "こんにちは，#{@name}と申します。宜しくお願いいたします。"
-    elsif @age == 10
-      puts "はいさいまいど〜，#{@name}です！！！"
+    if @age >= 16
+       print "こんにちは，#{@name}と申します。宜しくお願いいたします。"
+    else
+       print "はいさいまいど〜，#{@name}です！！！"
     end
   end
 
@@ -274,23 +274,42 @@ end
 
 class Zoo
   # 以下に回答を記載
-
   def initialize(name:, entry_fee:)
     @name = name
     @entry_fee = entry_fee
   end
 
+  # def info_entry_fee(user)
+  #   case user.age
+  #   when 0..5
+  #     puts "#{user.name}さんの入場料は#{@entry_fee[:infant]}円です。"
+  #   when 6..12
+  #     puts "#{user.name}さんの入場料は#{@entry_fee[:children]}円です。"
+  #   when 13..64
+  #     puts "#{user.name}さんの入場料は#{@entry_fee[:adult]}円です。"
+  #   when 65..120
+  #     puts "#{user.name}さんの入場料は#{@entry_fee[:senior]}円です。"
+  #   end
+  # end
+
+  
   def info_entry_fee(user)
-    if (0..5).cover?(user.age)
-      puts "#{user.name}さんの入場料は#{@entry_fee[:infant]}円です。"
-    elsif (6..12).cover?(user.age)
-      puts "#{user.name}さんの入場料は#{@entry_fee[:children]}円です。"
-    elsif (13..64).cover?(user.age)
-      puts "#{user.name}さんの入場料は#{@entry_fee[:adult]}円です。"
-    elsif (65..120).cover?(user.age)
-      puts "#{user.name}さんの入場料は#{@entry_fee[:senior]}円です。"
+    # case文の戻り値を変数に代入
+    age_group = 
+    case user.age
+    when 0..5
+      @entry_fee[:infant]
+    when 6..12
+      @entry_fee[:children]
+    when 13..64
+      @entry_fee[:adult]
+    when 65..120
+      @entry_fee[:senior]
     end
+
+    puts "#{user.name}さんの入場料は#{age_group}円です。"
   end
+
 end
 
 
