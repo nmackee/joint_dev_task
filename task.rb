@@ -230,9 +230,9 @@ class UserQ18
 
   def introduce
     if @age >= 16
-       print "こんにちは，#{@name}と申します。宜しくお願いいたします。"
+        "こんにちは，#{@name}と申します。宜しくお願いいたします。"
     else
-       print "はいさいまいど〜，#{@name}です！！！"
+        "はいさいまいど〜，#{@name}です！！！"
     end
   end
 
@@ -295,7 +295,7 @@ class Zoo
   
   def info_entry_fee(user)
     # case文の戻り値を変数に代入
-    age_group = 
+    fee = 
     case user.age
     when 0..5
       @entry_fee[:infant]
@@ -307,7 +307,7 @@ class Zoo
       @entry_fee[:senior]
     end
 
-    puts "#{user.name}さんの入場料は#{age_group}円です。"
+    puts "#{user.name}さんの入場料は#{fee}円です。"
   end
 
 end
